@@ -9,14 +9,11 @@ package Model;
  *
  * @author Recett
  */
-public abstract class OtherObject extends GameObject {
+public class Hole extends OtherObject {
 
-    public OtherObject(int x, int y) {
+    private int size;
+
+    public Hole(int x, int y) {
         super(x, y);
     }
-
-    @Override
-    public void move() {
-        x = x - speed;
-    }       
 }
