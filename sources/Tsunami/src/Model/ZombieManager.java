@@ -21,6 +21,8 @@ public class ZombieManager {
     
     public void removeZombie (Zombie e){
         ZMan.removeZombie(e);
+
+                
     }
     
     // dk die
