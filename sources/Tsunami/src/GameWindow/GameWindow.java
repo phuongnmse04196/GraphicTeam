@@ -1,5 +1,7 @@
 package GameWindow;
 
+import Controller.GameController;
+import Controller.ZombieController;
 import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Graphics;
@@ -7,12 +9,14 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class GameWindow extends Frame implements Runnable {
 
     public GameWindow() {
         this.setTitle("JS Club - Tsunami");
-        this.setSize(500, 500);
+        this.setSize(Constants.SIZE_WIDTH, Constants.SIZE_HEIGHT);
+        this.setResizable(false);
         this.setVisible(true);
         this.setBackground(Color.WHITE);
         this.addWindowListener(new WindowAdapter() {
@@ -29,12 +33,18 @@ public class GameWindow extends Frame implements Runnable {
 
             @Override
             public void keyPressed(KeyEvent e) {
-
+                switch(e.getKeyCode()){
+                    case KeyEvent.VK_F: 
+                        ZombieController.getInstance().jumping = true;
+                }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-
+                switch(e.getKeyCode()){
+                    case KeyEvent.VK_F: 
+                        ZombieController.getInstance().jumping = false;
+                }
             }
         });
     }
@@ -57,14 +67,20 @@ public class GameWindow extends Frame implements Runnable {
 
     @Override
     public void paint(Graphics g) {
-
+        GameController.getInst().draw(g);
     }
 
     @Override
     public void run() {
-
+        
         while (true) {
+            GameController.getInst().run();
             repaint();
+            try {
+                Thread.sleep(17);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(GameWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
