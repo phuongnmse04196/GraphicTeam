@@ -8,9 +8,11 @@ package GameWindow;
 public class Constants{
     public static final int SIZE_WIDTH = 1200;
     public static final int SIZE_HEIGHT = 600;
-    public static final int DEFAULT_POSITON_X = 150;
+    public static final int DEFAULT_POSITON_X = 200;
     public static final int DEFAULT_POSITION_Y = 300;
     public static final int DEFAULT_ZOMBIE_WIDTH = 30;
     public static final int DEFAULT_ZOMBIE_HEIGHT = 60;
+    
+    public static final int DEFAULT_ZOMBIE_JUMP = 2;
 }
 

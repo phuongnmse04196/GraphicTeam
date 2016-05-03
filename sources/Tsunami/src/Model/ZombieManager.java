@@ -45,7 +45,7 @@ public class ZombieManager {
     public void moveUp() {
         for (Zombie zombie : Zvect) {
             if (zombie.y > 150) {
-                zombie.y--;
+                zombie.y-= Constants.DEFAULT_ZOMBIE_JUMP;
             }
         }
     }
@@ -53,7 +53,7 @@ public class ZombieManager {
     public void moveDown() {
         for (Zombie zombie : Zvect) {
             if (zombie.y < 300) {
-                zombie.y++;
+                zombie.y+= Constants.DEFAULT_ZOMBIE_JUMP;
             } else {
                 movingDown = false;
             }
